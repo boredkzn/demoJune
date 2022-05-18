@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bc692a12890c4bb2a6c66d38ad7dad7f" Name="Diagram1">
+        <EntityTypeShape EntityType="ProizvodstvoModel.Agent" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.HistoriaIzmeneniiKolisestvaMterialov" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.HistoriMestopolodjenieSotrydnikov" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.IstoriaIzmeneniMinStoimostDlaAgent" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.IstoriaPostypleniaMaterialov" Width="1.5" PointX="5.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.IstoriaPrioritetnostiPostavki" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.IstoriaRealizashiiProductii" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Material" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.MestaKompanii" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.NomeraStandatrta" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Postavshik" Width="1.5" PointX="8.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Productshia" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Proizvodstvo" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Sotrydnik" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Speshialnost" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.SpisokMaterialDlaProizvodstvaProdyctii" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.TipAgenta" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.TipMaterial" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.TipPostavshika" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.TipProdycta" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.ToskiProdaji" Width="1.5" PointX="5.25" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProizvodstvoModel.Zaiavka" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Agent__TipAgenta__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__IstoriaPr__Agent__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__IstoriaRe__Agent__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__ToskiProd__Agent__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Zaiavka__AgentId__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__HistoriaI__Mater__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__HistoriaI__Posta__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__HistoriMe__Mesta__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__HistoriMe__Sotry__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__IstoriaIz__Zaiav__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__IstoriaPo__Mater__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__IstoriaRe__Produ__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Material__TipMat__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Postavshi__Mater__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__SpisokMat__Mater__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Productsh__Nomer__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Postavshi__TipPo__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Productsh__TipPr__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Proizvods__Produ__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__SpisokMat__Produ__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Zaiavka__Product__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Proizvods__Sotry__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="ProizvodstvoModel.FK__Sotrydnik__Spesh__4F7CD00D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

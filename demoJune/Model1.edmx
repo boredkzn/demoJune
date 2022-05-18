@@ -1,0 +1,1608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ProizvodstvoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="AgentId" />
+          </Key>
+          <Property Name="AgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImaAgenta" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImaCompanii" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="UridisheskiiAdres" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Inn" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Kpp" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FamiliaDirectora" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImaDirectora" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OtchestvoDirectora" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefon" Type="varchar(max)" Nullable="false" />
+          <Property Name="Pothta" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Logotip" Type="varchar" MaxLength="400" />
+          <Property Name="PrioritetnostPostavkah" Type="smallint" Nullable="false" />
+          <Property Name="TipAgentaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoriaIzmeneniiKolisestvaMterialov">
+          <Key>
+            <PropertyRef Name="HistoriaIzmeneniiKolisestvaMterialovId" />
+          </Key>
+          <Property Name="HistoriaIzmeneniiKolisestvaMterialovId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="PostavshikId" Type="int" Nullable="false" />
+          <Property Name="DateAndTime" Type="datetime" Nullable="false" />
+          <Property Name="Kolishestvo" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoriMestopolodjenieSotrydnikov">
+          <Key>
+            <PropertyRef Name="HistoriMestopolodjenieSotrydnikovId" />
+          </Key>
+          <Property Name="HistoriMestopolodjenieSotrydnikovId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateTimePosehenia" Type="datetime" Nullable="false" />
+          <Property Name="SotrydnikId" Type="int" Nullable="false" />
+          <Property Name="MestaKompaniiId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IstoriaIzmeneniMinStoimostDlaAgent">
+          <Key>
+            <PropertyRef Name="IstoriaIzmeneniMinStoimostDlaAgentId" />
+          </Key>
+          <Property Name="IstoriaIzmeneniMinStoimostDlaAgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZaiavkaId" Type="int" Nullable="false" />
+          <Property Name="DateZaiavki" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IstoriaPostypleniaMaterialov">
+          <Key>
+            <PropertyRef Name="IstoriaPostypleniaMaterialovId" />
+          </Key>
+          <Property Name="IstoriaPostypleniaMaterialovId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="DateAndTime" Type="datetime" Nullable="false" />
+          <Property Name="KolishestvoYpakovok" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IstoriaPrioritetnostiPostavki">
+          <Key>
+            <PropertyRef Name="IstoriaPrioritetnostiPostavkiId" />
+          </Key>
+          <Property Name="IstoriaPrioritetnostiPostavkiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="Proiritetnost" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IstoriaRealizashiiProductii">
+          <Key>
+            <PropertyRef Name="IstoriaRealizashiiProductiiId" />
+          </Key>
+          <Property Name="IstoriaRealizashiiProductiiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="ProductshiaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="TipMaterialId" Type="int" Nullable="false" />
+          <Property Name="KolihestwoVYpakovke" Type="smallint" Nullable="false" />
+          <Property Name="EdinishaIzmerenia" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="KolichestvoNaSklade" Type="smallint" Nullable="false" />
+          <Property Name="Opisanie" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Izobrajenie" Type="varchar" MaxLength="400" />
+          <Property Name="Stoimost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MestaKompanii">
+          <Key>
+            <PropertyRef Name="MestaKompaniiId" />
+          </Key>
+          <Property Name="MestaKompaniiId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NomeraStandatrta">
+          <Key>
+            <PropertyRef Name="NomeraStandatrtaId" />
+          </Key>
+          <Property Name="NomeraStandatrtaId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazvanieStandarta" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Opisanie" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Postavshik">
+          <Key>
+            <PropertyRef Name="PostavshikId" />
+          </Key>
+          <Property Name="PostavshikId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="TipPostavshikaId" Type="tinyint" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Inn" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productshia">
+          <Key>
+            <PropertyRef Name="ProductshiaId" />
+          </Key>
+          <Property Name="ProductshiaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artikul" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Opisanie" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Izobradjenie" Type="varchar" MaxLength="400" />
+          <Property Name="MinStoimostProductaDlaAgenta" Type="money" Nullable="false" />
+          <Property Name="DlinaYpakovki" Type="smallint" Nullable="false" />
+          <Property Name="ShirinaYpakovki" Type="smallint" Nullable="false" />
+          <Property Name="VisotaYpakovki" Type="smallint" Nullable="false" />
+          <Property Name="VesBezYpakovki" Type="smallint" Nullable="false" />
+          <Property Name="VesSYpakovki" Type="smallint" Nullable="false" />
+          <Property Name="SertifikatCathestva" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="NomeraStandatrtaId" Type="smallint" Nullable="false" />
+          <Property Name="TipProdyctaId" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvodstvo">
+          <Key>
+            <PropertyRef Name="ProizvodstvoId" />
+          </Key>
+          <Property Name="ProizvodstvoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductshiaId" Type="int" Nullable="false" />
+          <Property Name="SotrydnikId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sotrydnik">
+          <Key>
+            <PropertyRef Name="SotrydnikId" />
+          </Key>
+          <Property Name="SotrydnikId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Foto" Type="varchar" MaxLength="400" />
+          <Property Name="Familia" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ima" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Othestvo" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateRozdenia" Type="date" Nullable="false" />
+          <Property Name="SeriaPasporta" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="NomerPasporta" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="MestoProzivania" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MestoRozdenia" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="KemVidanPasport" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="DateVidachiPasporta" Type="date" Nullable="false" />
+          <Property Name="KodPodrazdeleniaPasporta" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ShetPolushtela" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="BankPolushatela" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="InnBanka" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="BikBanka" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="KorrespondentskiiShet" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="StatusDjenat" Type="bit" Nullable="false" />
+          <Property Name="KolishetvoDetei" Type="tinyint" Nullable="false" />
+          <Property Name="ProblemiSoZdoroviem" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="GraphikRaboty" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="SpeshialnostId" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Speshialnost">
+          <Key>
+            <PropertyRef Name="SpeshialnostId" />
+          </Key>
+          <Property Name="SpeshialnostId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpisokMaterialDlaProizvodstvaProdyctii">
+          <Key>
+            <PropertyRef Name="SpisokMaterialDlaProizvodstvaProdyctiiID" />
+          </Key>
+          <Property Name="SpisokMaterialDlaProizvodstvaProdyctiiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductshiaId" Type="int" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipAgenta">
+          <Key>
+            <PropertyRef Name="TipAgentaId" />
+          </Key>
+          <Property Name="TipAgentaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvatie" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipMaterial">
+          <Key>
+            <PropertyRef Name="TipMaterialId" />
+          </Key>
+          <Property Name="TipMaterialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Opisanie" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipPostavshika">
+          <Key>
+            <PropertyRef Name="TipPostavshikaId" />
+          </Key>
+          <Property Name="TipPostavshikaId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipProdycta">
+          <Key>
+            <PropertyRef Name="TipProdyctaId" />
+          </Key>
+          <Property Name="TipProdyctaId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ToskiProdaji">
+          <Key>
+            <PropertyRef Name="ToskiProdajiId" />
+          </Key>
+          <Property Name="ToskiProdajiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zaiavka">
+          <Key>
+            <PropertyRef Name="ZaiavkaId" />
+          </Key>
+          <Property Name="ZaiavkaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="FamiliaMenedjrea" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImaMenedjrea" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OthestvoMenedjrea" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DataZaiavki" Type="date" Nullable="false" />
+          <Property Name="VremaProizvodstva" Type="time" Precision="0" Nullable="false" />
+          <Property Name="KolishestvoProdyctii" Type="smallint" Nullable="false" />
+          <Property Name="OrganizashiaDostavki" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="StoimostPredoplati" Type="money" Nullable="false" />
+          <Property Name="StoimostProisvodstva" Type="money" Nullable="false" />
+          <Property Name="StatysPredoplaty" Type="bit" Nullable="false" />
+          <Property Name="StatysPolnoiOplaty" Type="bit" Nullable="false" />
+          <Property Name="StatysZaversheniaZaiavki" Type="bit" Nullable="false" />
+          <Property Name="ProductshiaId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Agent__TipAgenta__2C3393D0">
+          <End Role="TipAgenta" Type="Self.TipAgenta" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipAgenta">
+              <PropertyRef Name="TipAgentaId" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="TipAgentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaI__Mater__71D1E811">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="HistoriaIzmeneniiKolisestvaMterialov" Type="Self.HistoriaIzmeneniiKolisestvaMterialov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="HistoriaIzmeneniiKolisestvaMterialov">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaI__Posta__72C60C4A">
+          <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="1" />
+          <End Role="HistoriaIzmeneniiKolisestvaMterialov" Type="Self.HistoriaIzmeneniiKolisestvaMterialov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavshik">
+              <PropertyRef Name="PostavshikId" />
+            </Principal>
+            <Dependent Role="HistoriaIzmeneniiKolisestvaMterialov">
+              <PropertyRef Name="PostavshikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriMe__Mesta__5629CD9C">
+          <End Role="MestaKompanii" Type="Self.MestaKompanii" Multiplicity="1" />
+          <End Role="HistoriMestopolodjenieSotrydnikov" Type="Self.HistoriMestopolodjenieSotrydnikov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MestaKompanii">
+              <PropertyRef Name="MestaKompaniiId" />
+            </Principal>
+            <Dependent Role="HistoriMestopolodjenieSotrydnikov">
+              <PropertyRef Name="MestaKompaniiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriMe__Sotry__5535A963">
+          <End Role="Sotrydnik" Type="Self.Sotrydnik" Multiplicity="1" />
+          <End Role="HistoriMestopolodjenieSotrydnikov" Type="Self.HistoriMestopolodjenieSotrydnikov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrydnik">
+              <PropertyRef Name="SotrydnikId" />
+            </Principal>
+            <Dependent Role="HistoriMestopolodjenieSotrydnikov">
+              <PropertyRef Name="SotrydnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaIz__Zaiav__45F365D3">
+          <End Role="Zaiavka" Type="Self.Zaiavka" Multiplicity="1" />
+          <End Role="IstoriaIzmeneniMinStoimostDlaAgent" Type="Self.IstoriaIzmeneniMinStoimostDlaAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaiavka">
+              <PropertyRef Name="ZaiavkaId" />
+            </Principal>
+            <Dependent Role="IstoriaIzmeneniMinStoimostDlaAgent">
+              <PropertyRef Name="ZaiavkaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaPo__Mater__6EF57B66">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="IstoriaPostypleniaMaterialov" Type="Self.IstoriaPostypleniaMaterialov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="IstoriaPostypleniaMaterialov">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaPr__Agent__31EC6D26">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="IstoriaPrioritetnostiPostavki" Type="Self.IstoriaPrioritetnostiPostavki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="IstoriaPrioritetnostiPostavki">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaRe__Agent__4222D4EF">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="IstoriaRealizashiiProductii" Type="Self.IstoriaRealizashiiProductii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="IstoriaRealizashiiProductii">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaRe__Produ__4316F928">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="IstoriaRealizashiiProductii" Type="Self.IstoriaRealizashiiProductii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="IstoriaRealizashiiProductii">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Material__TipMat__6383C8BA">
+          <End Role="TipMaterial" Type="Self.TipMaterial" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipMaterial">
+              <PropertyRef Name="TipMaterialId" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="TipMaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Postavshi__Mater__6754599E">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="Postavshik">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Postavshi__TipPo__68487DD7">
+          <End Role="TipPostavshika" Type="Self.TipPostavshika" Multiplicity="1" />
+          <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipPostavshika">
+              <PropertyRef Name="TipPostavshikaId" />
+            </Principal>
+            <Dependent Role="Postavshik">
+              <PropertyRef Name="TipPostavshikaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productsh__Nomer__3A81B327">
+          <End Role="NomeraStandatrta" Type="Self.NomeraStandatrta" Multiplicity="1" />
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NomeraStandatrta">
+              <PropertyRef Name="NomeraStandatrtaId" />
+            </Principal>
+            <Dependent Role="Productshia">
+              <PropertyRef Name="NomeraStandatrtaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productsh__TipPr__3B75D760">
+          <End Role="TipProdycta" Type="Self.TipProdycta" Multiplicity="1" />
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipProdycta">
+              <PropertyRef Name="TipProdyctaId" />
+            </Principal>
+            <Dependent Role="Productshia">
+              <PropertyRef Name="TipProdyctaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvods__Produ__59063A47">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="Proizvodstvo">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvods__Sotry__59FA5E80">
+          <End Role="Sotrydnik" Type="Self.Sotrydnik" Multiplicity="1" />
+          <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrydnik">
+              <PropertyRef Name="SotrydnikId" />
+            </Principal>
+            <Dependent Role="Proizvodstvo">
+              <PropertyRef Name="SotrydnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sotrydnik__Spesh__4F7CD00D">
+          <End Role="Speshialnost" Type="Self.Speshialnost" Multiplicity="1" />
+          <End Role="Sotrydnik" Type="Self.Sotrydnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speshialnost">
+              <PropertyRef Name="SpeshialnostId" />
+            </Principal>
+            <Dependent Role="Sotrydnik">
+              <PropertyRef Name="SpeshialnostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SpisokMat__Mater__6C190EBB">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="SpisokMaterialDlaProizvodstvaProdyctii" Type="Self.SpisokMaterialDlaProizvodstvaProdyctii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="SpisokMaterialDlaProizvodstvaProdyctii">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SpisokMat__Produ__6B24EA82">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="SpisokMaterialDlaProizvodstvaProdyctii" Type="Self.SpisokMaterialDlaProizvodstvaProdyctii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="SpisokMaterialDlaProizvodstvaProdyctii">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ToskiProd__Agent__2F10007B">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="ToskiProdaji" Type="Self.ToskiProdaji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="ToskiProdaji">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaiavka__AgentId__3E52440B">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Zaiavka" Type="Self.Zaiavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="Zaiavka">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaiavka__Product__3F466844">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="Zaiavka" Type="Self.Zaiavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="Zaiavka">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ProizvodstvoModelContainer">
+          <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoriaIzmeneniiKolisestvaMterialov" EntityType="Self.HistoriaIzmeneniiKolisestvaMterialov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoriMestopolodjenieSotrydnikov" EntityType="Self.HistoriMestopolodjenieSotrydnikov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IstoriaIzmeneniMinStoimostDlaAgent" EntityType="Self.IstoriaIzmeneniMinStoimostDlaAgent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IstoriaPostypleniaMaterialov" EntityType="Self.IstoriaPostypleniaMaterialov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IstoriaPrioritetnostiPostavki" EntityType="Self.IstoriaPrioritetnostiPostavki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IstoriaRealizashiiProductii" EntityType="Self.IstoriaRealizashiiProductii" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MestaKompanii" EntityType="Self.MestaKompanii" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NomeraStandatrta" EntityType="Self.NomeraStandatrta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Postavshik" EntityType="Self.Postavshik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productshia" EntityType="Self.Productshia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvodstvo" EntityType="Self.Proizvodstvo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrydnik" EntityType="Self.Sotrydnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speshialnost" EntityType="Self.Speshialnost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpisokMaterialDlaProizvodstvaProdyctii" EntityType="Self.SpisokMaterialDlaProizvodstvaProdyctii" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipAgenta" EntityType="Self.TipAgenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipMaterial" EntityType="Self.TipMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipPostavshika" EntityType="Self.TipPostavshika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipProdycta" EntityType="Self.TipProdycta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToskiProdaji" EntityType="Self.ToskiProdaji" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaiavka" EntityType="Self.Zaiavka" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Agent__TipAgenta__2C3393D0" Association="Self.FK__Agent__TipAgenta__2C3393D0">
+            <End Role="TipAgenta" EntitySet="TipAgenta" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaI__Mater__71D1E811" Association="Self.FK__HistoriaI__Mater__71D1E811">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="HistoriaIzmeneniiKolisestvaMterialov" EntitySet="HistoriaIzmeneniiKolisestvaMterialov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaI__Posta__72C60C4A" Association="Self.FK__HistoriaI__Posta__72C60C4A">
+            <End Role="Postavshik" EntitySet="Postavshik" />
+            <End Role="HistoriaIzmeneniiKolisestvaMterialov" EntitySet="HistoriaIzmeneniiKolisestvaMterialov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriMe__Mesta__5629CD9C" Association="Self.FK__HistoriMe__Mesta__5629CD9C">
+            <End Role="MestaKompanii" EntitySet="MestaKompanii" />
+            <End Role="HistoriMestopolodjenieSotrydnikov" EntitySet="HistoriMestopolodjenieSotrydnikov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriMe__Sotry__5535A963" Association="Self.FK__HistoriMe__Sotry__5535A963">
+            <End Role="Sotrydnik" EntitySet="Sotrydnik" />
+            <End Role="HistoriMestopolodjenieSotrydnikov" EntitySet="HistoriMestopolodjenieSotrydnikov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaIz__Zaiav__45F365D3" Association="Self.FK__IstoriaIz__Zaiav__45F365D3">
+            <End Role="Zaiavka" EntitySet="Zaiavka" />
+            <End Role="IstoriaIzmeneniMinStoimostDlaAgent" EntitySet="IstoriaIzmeneniMinStoimostDlaAgent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaPo__Mater__6EF57B66" Association="Self.FK__IstoriaPo__Mater__6EF57B66">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="IstoriaPostypleniaMaterialov" EntitySet="IstoriaPostypleniaMaterialov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaPr__Agent__31EC6D26" Association="Self.FK__IstoriaPr__Agent__31EC6D26">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="IstoriaPrioritetnostiPostavki" EntitySet="IstoriaPrioritetnostiPostavki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaRe__Agent__4222D4EF" Association="Self.FK__IstoriaRe__Agent__4222D4EF">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="IstoriaRealizashiiProductii" EntitySet="IstoriaRealizashiiProductii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaRe__Produ__4316F928" Association="Self.FK__IstoriaRe__Produ__4316F928">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="IstoriaRealizashiiProductii" EntitySet="IstoriaRealizashiiProductii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Material__TipMat__6383C8BA" Association="Self.FK__Material__TipMat__6383C8BA">
+            <End Role="TipMaterial" EntitySet="TipMaterial" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Postavshi__Mater__6754599E" Association="Self.FK__Postavshi__Mater__6754599E">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Postavshik" EntitySet="Postavshik" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Postavshi__TipPo__68487DD7" Association="Self.FK__Postavshi__TipPo__68487DD7">
+            <End Role="TipPostavshika" EntitySet="TipPostavshika" />
+            <End Role="Postavshik" EntitySet="Postavshik" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productsh__Nomer__3A81B327" Association="Self.FK__Productsh__Nomer__3A81B327">
+            <End Role="NomeraStandatrta" EntitySet="NomeraStandatrta" />
+            <End Role="Productshia" EntitySet="Productshia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productsh__TipPr__3B75D760" Association="Self.FK__Productsh__TipPr__3B75D760">
+            <End Role="TipProdycta" EntitySet="TipProdycta" />
+            <End Role="Productshia" EntitySet="Productshia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvods__Produ__59063A47" Association="Self.FK__Proizvods__Produ__59063A47">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvods__Sotry__59FA5E80" Association="Self.FK__Proizvods__Sotry__59FA5E80">
+            <End Role="Sotrydnik" EntitySet="Sotrydnik" />
+            <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sotrydnik__Spesh__4F7CD00D" Association="Self.FK__Sotrydnik__Spesh__4F7CD00D">
+            <End Role="Speshialnost" EntitySet="Speshialnost" />
+            <End Role="Sotrydnik" EntitySet="Sotrydnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SpisokMat__Mater__6C190EBB" Association="Self.FK__SpisokMat__Mater__6C190EBB">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="SpisokMaterialDlaProizvodstvaProdyctii" EntitySet="SpisokMaterialDlaProizvodstvaProdyctii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SpisokMat__Produ__6B24EA82" Association="Self.FK__SpisokMat__Produ__6B24EA82">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="SpisokMaterialDlaProizvodstvaProdyctii" EntitySet="SpisokMaterialDlaProizvodstvaProdyctii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ToskiProd__Agent__2F10007B" Association="Self.FK__ToskiProd__Agent__2F10007B">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="ToskiProdaji" EntitySet="ToskiProdaji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaiavka__AgentId__3E52440B" Association="Self.FK__Zaiavka__AgentId__3E52440B">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Zaiavka" EntitySet="Zaiavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaiavka__Product__3F466844" Association="Self.FK__Zaiavka__Product__3F466844">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="Zaiavka" EntitySet="Zaiavka" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProizvodstvoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="AgentId" />
+          </Key>
+          <Property Name="AgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImaAgenta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImaCompanii" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UridisheskiiAdres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Inn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kpp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FamiliaDirectora" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImaDirectora" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OtchestvoDirectora" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pothta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Logotip" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PrioritetnostPostavkah" Type="Int16" Nullable="false" />
+          <Property Name="TipAgentaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipAgenta" Relationship="Self.FK__Agent__TipAgenta__2C3393D0" FromRole="Agent" ToRole="TipAgenta" />
+          <NavigationProperty Name="IstoriaPrioritetnostiPostavki" Relationship="Self.FK__IstoriaPr__Agent__31EC6D26" FromRole="Agent" ToRole="IstoriaPrioritetnostiPostavki" />
+          <NavigationProperty Name="IstoriaRealizashiiProductii" Relationship="Self.FK__IstoriaRe__Agent__4222D4EF" FromRole="Agent" ToRole="IstoriaRealizashiiProductii" />
+          <NavigationProperty Name="ToskiProdaji" Relationship="Self.FK__ToskiProd__Agent__2F10007B" FromRole="Agent" ToRole="ToskiProdaji" />
+          <NavigationProperty Name="Zaiavka" Relationship="Self.FK__Zaiavka__AgentId__3E52440B" FromRole="Agent" ToRole="Zaiavka" />
+        </EntityType>
+        <EntityType Name="HistoriaIzmeneniiKolisestvaMterialov">
+          <Key>
+            <PropertyRef Name="HistoriaIzmeneniiKolisestvaMterialovId" />
+          </Key>
+          <Property Name="HistoriaIzmeneniiKolisestvaMterialovId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="PostavshikId" Type="Int32" Nullable="false" />
+          <Property Name="DateAndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Kolishestvo" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK__HistoriaI__Mater__71D1E811" FromRole="HistoriaIzmeneniiKolisestvaMterialov" ToRole="Material" />
+          <NavigationProperty Name="Postavshik" Relationship="Self.FK__HistoriaI__Posta__72C60C4A" FromRole="HistoriaIzmeneniiKolisestvaMterialov" ToRole="Postavshik" />
+        </EntityType>
+        <EntityType Name="HistoriMestopolodjenieSotrydnikov">
+          <Key>
+            <PropertyRef Name="HistoriMestopolodjenieSotrydnikovId" />
+          </Key>
+          <Property Name="HistoriMestopolodjenieSotrydnikovId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTimePosehenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SotrydnikId" Type="Int32" Nullable="false" />
+          <Property Name="MestaKompaniiId" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="MestaKompanii" Relationship="Self.FK__HistoriMe__Mesta__5629CD9C" FromRole="HistoriMestopolodjenieSotrydnikov" ToRole="MestaKompanii" />
+          <NavigationProperty Name="Sotrydnik" Relationship="Self.FK__HistoriMe__Sotry__5535A963" FromRole="HistoriMestopolodjenieSotrydnikov" ToRole="Sotrydnik" />
+        </EntityType>
+        <EntityType Name="IstoriaIzmeneniMinStoimostDlaAgent">
+          <Key>
+            <PropertyRef Name="IstoriaIzmeneniMinStoimostDlaAgentId" />
+          </Key>
+          <Property Name="IstoriaIzmeneniMinStoimostDlaAgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZaiavkaId" Type="Int32" Nullable="false" />
+          <Property Name="DateZaiavki" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Zaiavka" Relationship="Self.FK__IstoriaIz__Zaiav__45F365D3" FromRole="IstoriaIzmeneniMinStoimostDlaAgent" ToRole="Zaiavka" />
+        </EntityType>
+        <EntityType Name="IstoriaPostypleniaMaterialov">
+          <Key>
+            <PropertyRef Name="IstoriaPostypleniaMaterialovId" />
+          </Key>
+          <Property Name="IstoriaPostypleniaMaterialovId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="DateAndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KolishestvoYpakovok" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK__IstoriaPo__Mater__6EF57B66" FromRole="IstoriaPostypleniaMaterialov" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="IstoriaPrioritetnostiPostavki">
+          <Key>
+            <PropertyRef Name="IstoriaPrioritetnostiPostavkiId" />
+          </Key>
+          <Property Name="IstoriaPrioritetnostiPostavkiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentId" Type="Int32" Nullable="false" />
+          <Property Name="Proiritetnost" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK__IstoriaPr__Agent__31EC6D26" FromRole="IstoriaPrioritetnostiPostavki" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="IstoriaRealizashiiProductii">
+          <Key>
+            <PropertyRef Name="IstoriaRealizashiiProductiiId" />
+          </Key>
+          <Property Name="IstoriaRealizashiiProductiiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentId" Type="Int32" Nullable="false" />
+          <Property Name="ProductshiaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK__IstoriaRe__Agent__4222D4EF" FromRole="IstoriaRealizashiiProductii" ToRole="Agent" />
+          <NavigationProperty Name="Productshia" Relationship="Self.FK__IstoriaRe__Produ__4316F928" FromRole="IstoriaRealizashiiProductii" ToRole="Productshia" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipMaterialId" Type="Int32" Nullable="false" />
+          <Property Name="KolihestwoVYpakovke" Type="Int16" Nullable="false" />
+          <Property Name="EdinishaIzmerenia" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KolichestvoNaSklade" Type="Int16" Nullable="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Izobrajenie" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="Stoimost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="HistoriaIzmeneniiKolisestvaMterialov" Relationship="Self.FK__HistoriaI__Mater__71D1E811" FromRole="Material" ToRole="HistoriaIzmeneniiKolisestvaMterialov" />
+          <NavigationProperty Name="IstoriaPostypleniaMaterialov" Relationship="Self.FK__IstoriaPo__Mater__6EF57B66" FromRole="Material" ToRole="IstoriaPostypleniaMaterialov" />
+          <NavigationProperty Name="TipMaterial" Relationship="Self.FK__Material__TipMat__6383C8BA" FromRole="Material" ToRole="TipMaterial" />
+          <NavigationProperty Name="Postavshik" Relationship="Self.FK__Postavshi__Mater__6754599E" FromRole="Material" ToRole="Postavshik" />
+          <NavigationProperty Name="SpisokMaterialDlaProizvodstvaProdyctii" Relationship="Self.FK__SpisokMat__Mater__6C190EBB" FromRole="Material" ToRole="SpisokMaterialDlaProizvodstvaProdyctii" />
+        </EntityType>
+        <EntityType Name="MestaKompanii">
+          <Key>
+            <PropertyRef Name="MestaKompaniiId" />
+          </Key>
+          <Property Name="MestaKompaniiId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HistoriMestopolodjenieSotrydnikov" Relationship="Self.FK__HistoriMe__Mesta__5629CD9C" FromRole="MestaKompanii" ToRole="HistoriMestopolodjenieSotrydnikov" />
+        </EntityType>
+        <EntityType Name="NomeraStandatrta">
+          <Key>
+            <PropertyRef Name="NomeraStandatrtaId" />
+          </Key>
+          <Property Name="NomeraStandatrtaId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazvanieStandarta" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Productshia" Relationship="Self.FK__Productsh__Nomer__3A81B327" FromRole="NomeraStandatrta" ToRole="Productshia" />
+        </EntityType>
+        <EntityType Name="Postavshik">
+          <Key>
+            <PropertyRef Name="PostavshikId" />
+          </Key>
+          <Property Name="PostavshikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="TipPostavshikaId" Type="Byte" Nullable="false" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Inn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HistoriaIzmeneniiKolisestvaMterialov" Relationship="Self.FK__HistoriaI__Posta__72C60C4A" FromRole="Postavshik" ToRole="HistoriaIzmeneniiKolisestvaMterialov" />
+          <NavigationProperty Name="Material" Relationship="Self.FK__Postavshi__Mater__6754599E" FromRole="Postavshik" ToRole="Material" />
+          <NavigationProperty Name="TipPostavshika" Relationship="Self.FK__Postavshi__TipPo__68487DD7" FromRole="Postavshik" ToRole="TipPostavshika" />
+        </EntityType>
+        <EntityType Name="Productshia">
+          <Key>
+            <PropertyRef Name="ProductshiaId" />
+          </Key>
+          <Property Name="ProductshiaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artikul" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Izobradjenie" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="MinStoimostProductaDlaAgenta" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DlinaYpakovki" Type="Int16" Nullable="false" />
+          <Property Name="ShirinaYpakovki" Type="Int16" Nullable="false" />
+          <Property Name="VisotaYpakovki" Type="Int16" Nullable="false" />
+          <Property Name="VesBezYpakovki" Type="Int16" Nullable="false" />
+          <Property Name="VesSYpakovki" Type="Int16" Nullable="false" />
+          <Property Name="SertifikatCathestva" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomeraStandatrtaId" Type="Int16" Nullable="false" />
+          <Property Name="TipProdyctaId" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="IstoriaRealizashiiProductii" Relationship="Self.FK__IstoriaRe__Produ__4316F928" FromRole="Productshia" ToRole="IstoriaRealizashiiProductii" />
+          <NavigationProperty Name="NomeraStandatrta" Relationship="Self.FK__Productsh__Nomer__3A81B327" FromRole="Productshia" ToRole="NomeraStandatrta" />
+          <NavigationProperty Name="TipProdycta" Relationship="Self.FK__Productsh__TipPr__3B75D760" FromRole="Productshia" ToRole="TipProdycta" />
+          <NavigationProperty Name="Proizvodstvo" Relationship="Self.FK__Proizvods__Produ__59063A47" FromRole="Productshia" ToRole="Proizvodstvo" />
+          <NavigationProperty Name="SpisokMaterialDlaProizvodstvaProdyctii" Relationship="Self.FK__SpisokMat__Produ__6B24EA82" FromRole="Productshia" ToRole="SpisokMaterialDlaProizvodstvaProdyctii" />
+          <NavigationProperty Name="Zaiavka" Relationship="Self.FK__Zaiavka__Product__3F466844" FromRole="Productshia" ToRole="Zaiavka" />
+        </EntityType>
+        <EntityType Name="Proizvodstvo">
+          <Key>
+            <PropertyRef Name="ProizvodstvoId" />
+          </Key>
+          <Property Name="ProizvodstvoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductshiaId" Type="Int32" Nullable="false" />
+          <Property Name="SotrydnikId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Productshia" Relationship="Self.FK__Proizvods__Produ__59063A47" FromRole="Proizvodstvo" ToRole="Productshia" />
+          <NavigationProperty Name="Sotrydnik" Relationship="Self.FK__Proizvods__Sotry__59FA5E80" FromRole="Proizvodstvo" ToRole="Sotrydnik" />
+        </EntityType>
+        <EntityType Name="Sotrydnik">
+          <Key>
+            <PropertyRef Name="SotrydnikId" />
+          </Key>
+          <Property Name="SotrydnikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Foto" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="Familia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ima" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Othestvo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateRozdenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SeriaPasporta" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomerPasporta" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MestoProzivania" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MestoRozdenia" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KemVidanPasport" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateVidachiPasporta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="KodPodrazdeleniaPasporta" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShetPolushtela" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BankPolushatela" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InnBanka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BikBanka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KorrespondentskiiShet" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StatusDjenat" Type="Boolean" Nullable="false" />
+          <Property Name="KolishetvoDetei" Type="Byte" Nullable="false" />
+          <Property Name="ProblemiSoZdoroviem" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GraphikRaboty" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SpeshialnostId" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="HistoriMestopolodjenieSotrydnikov" Relationship="Self.FK__HistoriMe__Sotry__5535A963" FromRole="Sotrydnik" ToRole="HistoriMestopolodjenieSotrydnikov" />
+          <NavigationProperty Name="Proizvodstvo" Relationship="Self.FK__Proizvods__Sotry__59FA5E80" FromRole="Sotrydnik" ToRole="Proizvodstvo" />
+          <NavigationProperty Name="Speshialnost" Relationship="Self.FK__Sotrydnik__Spesh__4F7CD00D" FromRole="Sotrydnik" ToRole="Speshialnost" />
+        </EntityType>
+        <EntityType Name="Speshialnost">
+          <Key>
+            <PropertyRef Name="SpeshialnostId" />
+          </Key>
+          <Property Name="SpeshialnostId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sotrydnik" Relationship="Self.FK__Sotrydnik__Spesh__4F7CD00D" FromRole="Speshialnost" ToRole="Sotrydnik" />
+        </EntityType>
+        <EntityType Name="SpisokMaterialDlaProizvodstvaProdyctii">
+          <Key>
+            <PropertyRef Name="SpisokMaterialDlaProizvodstvaProdyctiiID" />
+          </Key>
+          <Property Name="SpisokMaterialDlaProizvodstvaProdyctiiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductshiaId" Type="Int32" Nullable="false" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK__SpisokMat__Mater__6C190EBB" FromRole="SpisokMaterialDlaProizvodstvaProdyctii" ToRole="Material" />
+          <NavigationProperty Name="Productshia" Relationship="Self.FK__SpisokMat__Produ__6B24EA82" FromRole="SpisokMaterialDlaProizvodstvaProdyctii" ToRole="Productshia" />
+        </EntityType>
+        <EntityType Name="TipAgenta">
+          <Key>
+            <PropertyRef Name="TipAgentaId" />
+          </Key>
+          <Property Name="TipAgentaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvatie" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK__Agent__TipAgenta__2C3393D0" FromRole="TipAgenta" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="TipMaterial">
+          <Key>
+            <PropertyRef Name="TipMaterialId" />
+          </Key>
+          <Property Name="TipMaterialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK__Material__TipMat__6383C8BA" FromRole="TipMaterial" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="TipPostavshika">
+          <Key>
+            <PropertyRef Name="TipPostavshikaId" />
+          </Key>
+          <Property Name="TipPostavshikaId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Postavshik" Relationship="Self.FK__Postavshi__TipPo__68487DD7" FromRole="TipPostavshika" ToRole="Postavshik" />
+        </EntityType>
+        <EntityType Name="TipProdycta">
+          <Key>
+            <PropertyRef Name="TipProdyctaId" />
+          </Key>
+          <Property Name="TipProdyctaId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Productshia" Relationship="Self.FK__Productsh__TipPr__3B75D760" FromRole="TipProdycta" ToRole="Productshia" />
+        </EntityType>
+        <EntityType Name="ToskiProdaji">
+          <Key>
+            <PropertyRef Name="ToskiProdajiId" />
+          </Key>
+          <Property Name="ToskiProdajiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentId" Type="Int32" Nullable="false" />
+          <Property Name="Nazvanie" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK__ToskiProd__Agent__2F10007B" FromRole="ToskiProdaji" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="Zaiavka">
+          <Key>
+            <PropertyRef Name="ZaiavkaId" />
+          </Key>
+          <Property Name="ZaiavkaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentId" Type="Int32" Nullable="false" />
+          <Property Name="FamiliaMenedjrea" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImaMenedjrea" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OthestvoMenedjrea" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataZaiavki" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VremaProizvodstva" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="KolishestvoProdyctii" Type="Int16" Nullable="false" />
+          <Property Name="OrganizashiaDostavki" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StoimostPredoplati" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="StoimostProisvodstva" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="StatysPredoplaty" Type="Boolean" Nullable="false" />
+          <Property Name="StatysPolnoiOplaty" Type="Boolean" Nullable="false" />
+          <Property Name="StatysZaversheniaZaiavki" Type="Boolean" Nullable="false" />
+          <Property Name="ProductshiaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK__Zaiavka__AgentId__3E52440B" FromRole="Zaiavka" ToRole="Agent" />
+          <NavigationProperty Name="IstoriaIzmeneniMinStoimostDlaAgent" Relationship="Self.FK__IstoriaIz__Zaiav__45F365D3" FromRole="Zaiavka" ToRole="IstoriaIzmeneniMinStoimostDlaAgent" />
+          <NavigationProperty Name="Productshia" Relationship="Self.FK__Zaiavka__Product__3F466844" FromRole="Zaiavka" ToRole="Productshia" />
+        </EntityType>
+        <Association Name="FK__Agent__TipAgenta__2C3393D0">
+          <End Role="TipAgenta" Type="Self.TipAgenta" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipAgenta">
+              <PropertyRef Name="TipAgentaId" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="TipAgentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaPr__Agent__31EC6D26">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="IstoriaPrioritetnostiPostavki" Type="Self.IstoriaPrioritetnostiPostavki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="IstoriaPrioritetnostiPostavki">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaRe__Agent__4222D4EF">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="IstoriaRealizashiiProductii" Type="Self.IstoriaRealizashiiProductii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="IstoriaRealizashiiProductii">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ToskiProd__Agent__2F10007B">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="ToskiProdaji" Type="Self.ToskiProdaji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="ToskiProdaji">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaiavka__AgentId__3E52440B">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Zaiavka" Type="Self.Zaiavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="Zaiavka">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaI__Mater__71D1E811">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="HistoriaIzmeneniiKolisestvaMterialov" Type="Self.HistoriaIzmeneniiKolisestvaMterialov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="HistoriaIzmeneniiKolisestvaMterialov">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaI__Posta__72C60C4A">
+          <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="1" />
+          <End Role="HistoriaIzmeneniiKolisestvaMterialov" Type="Self.HistoriaIzmeneniiKolisestvaMterialov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavshik">
+              <PropertyRef Name="PostavshikId" />
+            </Principal>
+            <Dependent Role="HistoriaIzmeneniiKolisestvaMterialov">
+              <PropertyRef Name="PostavshikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriMe__Mesta__5629CD9C">
+          <End Role="MestaKompanii" Type="Self.MestaKompanii" Multiplicity="1" />
+          <End Role="HistoriMestopolodjenieSotrydnikov" Type="Self.HistoriMestopolodjenieSotrydnikov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MestaKompanii">
+              <PropertyRef Name="MestaKompaniiId" />
+            </Principal>
+            <Dependent Role="HistoriMestopolodjenieSotrydnikov">
+              <PropertyRef Name="MestaKompaniiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriMe__Sotry__5535A963">
+          <End Role="Sotrydnik" Type="Self.Sotrydnik" Multiplicity="1" />
+          <End Role="HistoriMestopolodjenieSotrydnikov" Type="Self.HistoriMestopolodjenieSotrydnikov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrydnik">
+              <PropertyRef Name="SotrydnikId" />
+            </Principal>
+            <Dependent Role="HistoriMestopolodjenieSotrydnikov">
+              <PropertyRef Name="SotrydnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaIz__Zaiav__45F365D3">
+          <End Role="Zaiavka" Type="Self.Zaiavka" Multiplicity="1" />
+          <End Role="IstoriaIzmeneniMinStoimostDlaAgent" Type="Self.IstoriaIzmeneniMinStoimostDlaAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaiavka">
+              <PropertyRef Name="ZaiavkaId" />
+            </Principal>
+            <Dependent Role="IstoriaIzmeneniMinStoimostDlaAgent">
+              <PropertyRef Name="ZaiavkaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaPo__Mater__6EF57B66">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="IstoriaPostypleniaMaterialov" Type="Self.IstoriaPostypleniaMaterialov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="IstoriaPostypleniaMaterialov">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IstoriaRe__Produ__4316F928">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="IstoriaRealizashiiProductii" Type="Self.IstoriaRealizashiiProductii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="IstoriaRealizashiiProductii">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Material__TipMat__6383C8BA">
+          <End Role="TipMaterial" Type="Self.TipMaterial" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipMaterial">
+              <PropertyRef Name="TipMaterialId" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="TipMaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Postavshi__Mater__6754599E">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="Postavshik">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SpisokMat__Mater__6C190EBB">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="SpisokMaterialDlaProizvodstvaProdyctii" Type="Self.SpisokMaterialDlaProizvodstvaProdyctii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="SpisokMaterialDlaProizvodstvaProdyctii">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productsh__Nomer__3A81B327">
+          <End Role="NomeraStandatrta" Type="Self.NomeraStandatrta" Multiplicity="1" />
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NomeraStandatrta">
+              <PropertyRef Name="NomeraStandatrtaId" />
+            </Principal>
+            <Dependent Role="Productshia">
+              <PropertyRef Name="NomeraStandatrtaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Postavshi__TipPo__68487DD7">
+          <End Role="TipPostavshika" Type="Self.TipPostavshika" Multiplicity="1" />
+          <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipPostavshika">
+              <PropertyRef Name="TipPostavshikaId" />
+            </Principal>
+            <Dependent Role="Postavshik">
+              <PropertyRef Name="TipPostavshikaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productsh__TipPr__3B75D760">
+          <End Role="TipProdycta" Type="Self.TipProdycta" Multiplicity="1" />
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipProdycta">
+              <PropertyRef Name="TipProdyctaId" />
+            </Principal>
+            <Dependent Role="Productshia">
+              <PropertyRef Name="TipProdyctaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvods__Produ__59063A47">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="Proizvodstvo">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SpisokMat__Produ__6B24EA82">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="SpisokMaterialDlaProizvodstvaProdyctii" Type="Self.SpisokMaterialDlaProizvodstvaProdyctii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="SpisokMaterialDlaProizvodstvaProdyctii">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaiavka__Product__3F466844">
+          <End Role="Productshia" Type="Self.Productshia" Multiplicity="1" />
+          <End Role="Zaiavka" Type="Self.Zaiavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productshia">
+              <PropertyRef Name="ProductshiaId" />
+            </Principal>
+            <Dependent Role="Zaiavka">
+              <PropertyRef Name="ProductshiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvods__Sotry__59FA5E80">
+          <End Role="Sotrydnik" Type="Self.Sotrydnik" Multiplicity="1" />
+          <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrydnik">
+              <PropertyRef Name="SotrydnikId" />
+            </Principal>
+            <Dependent Role="Proizvodstvo">
+              <PropertyRef Name="SotrydnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sotrydnik__Spesh__4F7CD00D">
+          <End Role="Speshialnost" Type="Self.Speshialnost" Multiplicity="1" />
+          <End Role="Sotrydnik" Type="Self.Sotrydnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speshialnost">
+              <PropertyRef Name="SpeshialnostId" />
+            </Principal>
+            <Dependent Role="Sotrydnik">
+              <PropertyRef Name="SpeshialnostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProizvodstvoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Agent" EntityType="Self.Agent" />
+          <EntitySet Name="HistoriaIzmeneniiKolisestvaMterialov" EntityType="Self.HistoriaIzmeneniiKolisestvaMterialov" />
+          <EntitySet Name="HistoriMestopolodjenieSotrydnikov" EntityType="Self.HistoriMestopolodjenieSotrydnikov" />
+          <EntitySet Name="IstoriaIzmeneniMinStoimostDlaAgent" EntityType="Self.IstoriaIzmeneniMinStoimostDlaAgent" />
+          <EntitySet Name="IstoriaPostypleniaMaterialov" EntityType="Self.IstoriaPostypleniaMaterialov" />
+          <EntitySet Name="IstoriaPrioritetnostiPostavki" EntityType="Self.IstoriaPrioritetnostiPostavki" />
+          <EntitySet Name="IstoriaRealizashiiProductii" EntityType="Self.IstoriaRealizashiiProductii" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="MestaKompanii" EntityType="Self.MestaKompanii" />
+          <EntitySet Name="NomeraStandatrta" EntityType="Self.NomeraStandatrta" />
+          <EntitySet Name="Postavshik" EntityType="Self.Postavshik" />
+          <EntitySet Name="Productshia" EntityType="Self.Productshia" />
+          <EntitySet Name="Proizvodstvo" EntityType="Self.Proizvodstvo" />
+          <EntitySet Name="Sotrydnik" EntityType="Self.Sotrydnik" />
+          <EntitySet Name="Speshialnost" EntityType="Self.Speshialnost" />
+          <EntitySet Name="SpisokMaterialDlaProizvodstvaProdyctii" EntityType="Self.SpisokMaterialDlaProizvodstvaProdyctii" />
+          <EntitySet Name="TipAgenta" EntityType="Self.TipAgenta" />
+          <EntitySet Name="TipMaterial" EntityType="Self.TipMaterial" />
+          <EntitySet Name="TipPostavshika" EntityType="Self.TipPostavshika" />
+          <EntitySet Name="TipProdycta" EntityType="Self.TipProdycta" />
+          <EntitySet Name="ToskiProdaji" EntityType="Self.ToskiProdaji" />
+          <EntitySet Name="Zaiavka" EntityType="Self.Zaiavka" />
+          <AssociationSet Name="FK__Agent__TipAgenta__2C3393D0" Association="Self.FK__Agent__TipAgenta__2C3393D0">
+            <End Role="TipAgenta" EntitySet="TipAgenta" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaPr__Agent__31EC6D26" Association="Self.FK__IstoriaPr__Agent__31EC6D26">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="IstoriaPrioritetnostiPostavki" EntitySet="IstoriaPrioritetnostiPostavki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaRe__Agent__4222D4EF" Association="Self.FK__IstoriaRe__Agent__4222D4EF">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="IstoriaRealizashiiProductii" EntitySet="IstoriaRealizashiiProductii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ToskiProd__Agent__2F10007B" Association="Self.FK__ToskiProd__Agent__2F10007B">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="ToskiProdaji" EntitySet="ToskiProdaji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaiavka__AgentId__3E52440B" Association="Self.FK__Zaiavka__AgentId__3E52440B">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Zaiavka" EntitySet="Zaiavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaI__Mater__71D1E811" Association="Self.FK__HistoriaI__Mater__71D1E811">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="HistoriaIzmeneniiKolisestvaMterialov" EntitySet="HistoriaIzmeneniiKolisestvaMterialov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaI__Posta__72C60C4A" Association="Self.FK__HistoriaI__Posta__72C60C4A">
+            <End Role="Postavshik" EntitySet="Postavshik" />
+            <End Role="HistoriaIzmeneniiKolisestvaMterialov" EntitySet="HistoriaIzmeneniiKolisestvaMterialov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriMe__Mesta__5629CD9C" Association="Self.FK__HistoriMe__Mesta__5629CD9C">
+            <End Role="MestaKompanii" EntitySet="MestaKompanii" />
+            <End Role="HistoriMestopolodjenieSotrydnikov" EntitySet="HistoriMestopolodjenieSotrydnikov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriMe__Sotry__5535A963" Association="Self.FK__HistoriMe__Sotry__5535A963">
+            <End Role="Sotrydnik" EntitySet="Sotrydnik" />
+            <End Role="HistoriMestopolodjenieSotrydnikov" EntitySet="HistoriMestopolodjenieSotrydnikov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaIz__Zaiav__45F365D3" Association="Self.FK__IstoriaIz__Zaiav__45F365D3">
+            <End Role="Zaiavka" EntitySet="Zaiavka" />
+            <End Role="IstoriaIzmeneniMinStoimostDlaAgent" EntitySet="IstoriaIzmeneniMinStoimostDlaAgent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaPo__Mater__6EF57B66" Association="Self.FK__IstoriaPo__Mater__6EF57B66">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="IstoriaPostypleniaMaterialov" EntitySet="IstoriaPostypleniaMaterialov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IstoriaRe__Produ__4316F928" Association="Self.FK__IstoriaRe__Produ__4316F928">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="IstoriaRealizashiiProductii" EntitySet="IstoriaRealizashiiProductii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Material__TipMat__6383C8BA" Association="Self.FK__Material__TipMat__6383C8BA">
+            <End Role="TipMaterial" EntitySet="TipMaterial" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Postavshi__Mater__6754599E" Association="Self.FK__Postavshi__Mater__6754599E">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Postavshik" EntitySet="Postavshik" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SpisokMat__Mater__6C190EBB" Association="Self.FK__SpisokMat__Mater__6C190EBB">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="SpisokMaterialDlaProizvodstvaProdyctii" EntitySet="SpisokMaterialDlaProizvodstvaProdyctii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productsh__Nomer__3A81B327" Association="Self.FK__Productsh__Nomer__3A81B327">
+            <End Role="NomeraStandatrta" EntitySet="NomeraStandatrta" />
+            <End Role="Productshia" EntitySet="Productshia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Postavshi__TipPo__68487DD7" Association="Self.FK__Postavshi__TipPo__68487DD7">
+            <End Role="TipPostavshika" EntitySet="TipPostavshika" />
+            <End Role="Postavshik" EntitySet="Postavshik" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productsh__TipPr__3B75D760" Association="Self.FK__Productsh__TipPr__3B75D760">
+            <End Role="TipProdycta" EntitySet="TipProdycta" />
+            <End Role="Productshia" EntitySet="Productshia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvods__Produ__59063A47" Association="Self.FK__Proizvods__Produ__59063A47">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SpisokMat__Produ__6B24EA82" Association="Self.FK__SpisokMat__Produ__6B24EA82">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="SpisokMaterialDlaProizvodstvaProdyctii" EntitySet="SpisokMaterialDlaProizvodstvaProdyctii" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaiavka__Product__3F466844" Association="Self.FK__Zaiavka__Product__3F466844">
+            <End Role="Productshia" EntitySet="Productshia" />
+            <End Role="Zaiavka" EntitySet="Zaiavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvods__Sotry__59FA5E80" Association="Self.FK__Proizvods__Sotry__59FA5E80">
+            <End Role="Sotrydnik" EntitySet="Sotrydnik" />
+            <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sotrydnik__Spesh__4F7CD00D" Association="Self.FK__Sotrydnik__Spesh__4F7CD00D">
+            <End Role="Speshialnost" EntitySet="Speshialnost" />
+            <End Role="Sotrydnik" EntitySet="Sotrydnik" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ProizvodstvoModelContainer" CdmEntityContainer="ProizvodstvoEntities">
+          <EntitySetMapping Name="Agent">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="ImaAgenta" ColumnName="ImaAgenta" />
+                <ScalarProperty Name="ImaCompanii" ColumnName="ImaCompanii" />
+                <ScalarProperty Name="UridisheskiiAdres" ColumnName="UridisheskiiAdres" />
+                <ScalarProperty Name="Inn" ColumnName="Inn" />
+                <ScalarProperty Name="Kpp" ColumnName="Kpp" />
+                <ScalarProperty Name="FamiliaDirectora" ColumnName="FamiliaDirectora" />
+                <ScalarProperty Name="ImaDirectora" ColumnName="ImaDirectora" />
+                <ScalarProperty Name="OtchestvoDirectora" ColumnName="OtchestvoDirectora" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Pothta" ColumnName="Pothta" />
+                <ScalarProperty Name="Logotip" ColumnName="Logotip" />
+                <ScalarProperty Name="PrioritetnostPostavkah" ColumnName="PrioritetnostPostavkah" />
+                <ScalarProperty Name="TipAgentaId" ColumnName="TipAgentaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriaIzmeneniiKolisestvaMterialov">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.HistoriaIzmeneniiKolisestvaMterialov">
+              <MappingFragment StoreEntitySet="HistoriaIzmeneniiKolisestvaMterialov">
+                <ScalarProperty Name="HistoriaIzmeneniiKolisestvaMterialovId" ColumnName="HistoriaIzmeneniiKolisestvaMterialovId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="PostavshikId" ColumnName="PostavshikId" />
+                <ScalarProperty Name="DateAndTime" ColumnName="DateAndTime" />
+                <ScalarProperty Name="Kolishestvo" ColumnName="Kolishestvo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriMestopolodjenieSotrydnikov">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.HistoriMestopolodjenieSotrydnikov">
+              <MappingFragment StoreEntitySet="HistoriMestopolodjenieSotrydnikov">
+                <ScalarProperty Name="HistoriMestopolodjenieSotrydnikovId" ColumnName="HistoriMestopolodjenieSotrydnikovId" />
+                <ScalarProperty Name="DateTimePosehenia" ColumnName="DateTimePosehenia" />
+                <ScalarProperty Name="SotrydnikId" ColumnName="SotrydnikId" />
+                <ScalarProperty Name="MestaKompaniiId" ColumnName="MestaKompaniiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IstoriaIzmeneniMinStoimostDlaAgent">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.IstoriaIzmeneniMinStoimostDlaAgent">
+              <MappingFragment StoreEntitySet="IstoriaIzmeneniMinStoimostDlaAgent">
+                <ScalarProperty Name="IstoriaIzmeneniMinStoimostDlaAgentId" ColumnName="IstoriaIzmeneniMinStoimostDlaAgentId" />
+                <ScalarProperty Name="ZaiavkaId" ColumnName="ZaiavkaId" />
+                <ScalarProperty Name="DateZaiavki" ColumnName="DateZaiavki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IstoriaPostypleniaMaterialov">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.IstoriaPostypleniaMaterialov">
+              <MappingFragment StoreEntitySet="IstoriaPostypleniaMaterialov">
+                <ScalarProperty Name="IstoriaPostypleniaMaterialovId" ColumnName="IstoriaPostypleniaMaterialovId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="DateAndTime" ColumnName="DateAndTime" />
+                <ScalarProperty Name="KolishestvoYpakovok" ColumnName="KolishestvoYpakovok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IstoriaPrioritetnostiPostavki">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.IstoriaPrioritetnostiPostavki">
+              <MappingFragment StoreEntitySet="IstoriaPrioritetnostiPostavki">
+                <ScalarProperty Name="IstoriaPrioritetnostiPostavkiId" ColumnName="IstoriaPrioritetnostiPostavkiId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="Proiritetnost" ColumnName="Proiritetnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IstoriaRealizashiiProductii">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.IstoriaRealizashiiProductii">
+              <MappingFragment StoreEntitySet="IstoriaRealizashiiProductii">
+                <ScalarProperty Name="IstoriaRealizashiiProductiiId" ColumnName="IstoriaRealizashiiProductiiId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="ProductshiaId" ColumnName="ProductshiaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+                <ScalarProperty Name="TipMaterialId" ColumnName="TipMaterialId" />
+                <ScalarProperty Name="KolihestwoVYpakovke" ColumnName="KolihestwoVYpakovke" />
+                <ScalarProperty Name="EdinishaIzmerenia" ColumnName="EdinishaIzmerenia" />
+                <ScalarProperty Name="KolichestvoNaSklade" ColumnName="KolichestvoNaSklade" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+                <ScalarProperty Name="Izobrajenie" ColumnName="Izobrajenie" />
+                <ScalarProperty Name="Stoimost" ColumnName="Stoimost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MestaKompanii">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.MestaKompanii">
+              <MappingFragment StoreEntitySet="MestaKompanii">
+                <ScalarProperty Name="MestaKompaniiId" ColumnName="MestaKompaniiId" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NomeraStandatrta">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.NomeraStandatrta">
+              <MappingFragment StoreEntitySet="NomeraStandatrta">
+                <ScalarProperty Name="NomeraStandatrtaId" ColumnName="NomeraStandatrtaId" />
+                <ScalarProperty Name="NazvanieStandarta" ColumnName="NazvanieStandarta" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Postavshik">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Postavshik">
+              <MappingFragment StoreEntitySet="Postavshik">
+                <ScalarProperty Name="PostavshikId" ColumnName="PostavshikId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="TipPostavshikaId" ColumnName="TipPostavshikaId" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+                <ScalarProperty Name="Inn" ColumnName="Inn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productshia">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Productshia">
+              <MappingFragment StoreEntitySet="Productshia">
+                <ScalarProperty Name="ProductshiaId" ColumnName="ProductshiaId" />
+                <ScalarProperty Name="Artikul" ColumnName="Artikul" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+                <ScalarProperty Name="Izobradjenie" ColumnName="Izobradjenie" />
+                <ScalarProperty Name="MinStoimostProductaDlaAgenta" ColumnName="MinStoimostProductaDlaAgenta" />
+                <ScalarProperty Name="DlinaYpakovki" ColumnName="DlinaYpakovki" />
+                <ScalarProperty Name="ShirinaYpakovki" ColumnName="ShirinaYpakovki" />
+                <ScalarProperty Name="VisotaYpakovki" ColumnName="VisotaYpakovki" />
+                <ScalarProperty Name="VesBezYpakovki" ColumnName="VesBezYpakovki" />
+                <ScalarProperty Name="VesSYpakovki" ColumnName="VesSYpakovki" />
+                <ScalarProperty Name="SertifikatCathestva" ColumnName="SertifikatCathestva" />
+                <ScalarProperty Name="NomeraStandatrtaId" ColumnName="NomeraStandatrtaId" />
+                <ScalarProperty Name="TipProdyctaId" ColumnName="TipProdyctaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvodstvo">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Proizvodstvo">
+              <MappingFragment StoreEntitySet="Proizvodstvo">
+                <ScalarProperty Name="ProizvodstvoId" ColumnName="ProizvodstvoId" />
+                <ScalarProperty Name="ProductshiaId" ColumnName="ProductshiaId" />
+                <ScalarProperty Name="SotrydnikId" ColumnName="SotrydnikId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrydnik">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Sotrydnik">
+              <MappingFragment StoreEntitySet="Sotrydnik">
+                <ScalarProperty Name="SotrydnikId" ColumnName="SotrydnikId" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Ima" ColumnName="Ima" />
+                <ScalarProperty Name="Othestvo" ColumnName="Othestvo" />
+                <ScalarProperty Name="DateRozdenia" ColumnName="DateRozdenia" />
+                <ScalarProperty Name="SeriaPasporta" ColumnName="SeriaPasporta" />
+                <ScalarProperty Name="NomerPasporta" ColumnName="NomerPasporta" />
+                <ScalarProperty Name="MestoProzivania" ColumnName="MestoProzivania" />
+                <ScalarProperty Name="MestoRozdenia" ColumnName="MestoRozdenia" />
+                <ScalarProperty Name="KemVidanPasport" ColumnName="KemVidanPasport" />
+                <ScalarProperty Name="DateVidachiPasporta" ColumnName="DateVidachiPasporta" />
+                <ScalarProperty Name="KodPodrazdeleniaPasporta" ColumnName="KodPodrazdeleniaPasporta" />
+                <ScalarProperty Name="ShetPolushtela" ColumnName="ShetPolushtela" />
+                <ScalarProperty Name="BankPolushatela" ColumnName="BankPolushatela" />
+                <ScalarProperty Name="InnBanka" ColumnName="InnBanka" />
+                <ScalarProperty Name="BikBanka" ColumnName="BikBanka" />
+                <ScalarProperty Name="KorrespondentskiiShet" ColumnName="KorrespondentskiiShet" />
+                <ScalarProperty Name="StatusDjenat" ColumnName="StatusDjenat" />
+                <ScalarProperty Name="KolishetvoDetei" ColumnName="KolishetvoDetei" />
+                <ScalarProperty Name="ProblemiSoZdoroviem" ColumnName="ProblemiSoZdoroviem" />
+                <ScalarProperty Name="GraphikRaboty" ColumnName="GraphikRaboty" />
+                <ScalarProperty Name="SpeshialnostId" ColumnName="SpeshialnostId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speshialnost">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Speshialnost">
+              <MappingFragment StoreEntitySet="Speshialnost">
+                <ScalarProperty Name="SpeshialnostId" ColumnName="SpeshialnostId" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpisokMaterialDlaProizvodstvaProdyctii">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.SpisokMaterialDlaProizvodstvaProdyctii">
+              <MappingFragment StoreEntitySet="SpisokMaterialDlaProizvodstvaProdyctii">
+                <ScalarProperty Name="SpisokMaterialDlaProizvodstvaProdyctiiID" ColumnName="SpisokMaterialDlaProizvodstvaProdyctiiID" />
+                <ScalarProperty Name="ProductshiaId" ColumnName="ProductshiaId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipAgenta">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.TipAgenta">
+              <MappingFragment StoreEntitySet="TipAgenta">
+                <ScalarProperty Name="TipAgentaId" ColumnName="TipAgentaId" />
+                <ScalarProperty Name="Nazvatie" ColumnName="Nazvatie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipMaterial">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.TipMaterial">
+              <MappingFragment StoreEntitySet="TipMaterial">
+                <ScalarProperty Name="TipMaterialId" ColumnName="TipMaterialId" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipPostavshika">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.TipPostavshika">
+              <MappingFragment StoreEntitySet="TipPostavshika">
+                <ScalarProperty Name="TipPostavshikaId" ColumnName="TipPostavshikaId" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipProdycta">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.TipProdycta">
+              <MappingFragment StoreEntitySet="TipProdycta">
+                <ScalarProperty Name="TipProdyctaId" ColumnName="TipProdyctaId" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToskiProdaji">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.ToskiProdaji">
+              <MappingFragment StoreEntitySet="ToskiProdaji">
+                <ScalarProperty Name="ToskiProdajiId" ColumnName="ToskiProdajiId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zaiavka">
+            <EntityTypeMapping TypeName="ProizvodstvoModel.Zaiavka">
+              <MappingFragment StoreEntitySet="Zaiavka">
+                <ScalarProperty Name="ZaiavkaId" ColumnName="ZaiavkaId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="FamiliaMenedjrea" ColumnName="FamiliaMenedjrea" />
+                <ScalarProperty Name="ImaMenedjrea" ColumnName="ImaMenedjrea" />
+                <ScalarProperty Name="OthestvoMenedjrea" ColumnName="OthestvoMenedjrea" />
+                <ScalarProperty Name="DataZaiavki" ColumnName="DataZaiavki" />
+                <ScalarProperty Name="VremaProizvodstva" ColumnName="VremaProizvodstva" />
+                <ScalarProperty Name="KolishestvoProdyctii" ColumnName="KolishestvoProdyctii" />
+                <ScalarProperty Name="OrganizashiaDostavki" ColumnName="OrganizashiaDostavki" />
+                <ScalarProperty Name="StoimostPredoplati" ColumnName="StoimostPredoplati" />
+                <ScalarProperty Name="StoimostProisvodstva" ColumnName="StoimostProisvodstva" />
+                <ScalarProperty Name="StatysPredoplaty" ColumnName="StatysPredoplaty" />
+                <ScalarProperty Name="StatysPolnoiOplaty" ColumnName="StatysPolnoiOplaty" />
+                <ScalarProperty Name="StatysZaversheniaZaiavki" ColumnName="StatysZaversheniaZaiavki" />
+                <ScalarProperty Name="ProductshiaId" ColumnName="ProductshiaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

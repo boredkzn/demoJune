@@ -1,0 +1,64 @@
+﻿<Window x:Class="demoJune.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demoJune"
+        mc:Ignorable="d"
+        Title="Edit" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.02*"></ColumnDefinition>
+
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="0.02*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">Имя агента:</Label>
+        <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">Имя компании:</Label>
+        <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">Юридический адрес:</Label>
+        <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center">ИНН:</Label>
+        <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center">КПП:</Label>
+        <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center">Фамилия директора:</Label>
+        <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center">Имя директора:</Label>
+        <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center">Отчество директора:</Label>
+        <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center">Телефон:</Label>
+        <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center">Почта:</Label>
+        <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center">Логотип:</Label>
+        <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Center">Приоритетность поставках:</Label>
+        <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Center">Тип агента:</Label>
+        <Button Grid.Column="1" Grid.Row="14" Content="Сохранить" Click="Button_Click"></Button>
+        <Button Grid.Column="2" Grid.Row="14" Content="Выйти"></Button>
+        <TextBox x:Name="imaAgenta" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="imaComp" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="adress" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="inn" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="kpp" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="fami" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="imya" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="otchest" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="phone" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <TextBox x:Name="pochta" Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" Width="95" Height="20" ></TextBox>
+        <Button Content="Загрузить" Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" Width="100" Height="20"></Button>
+        <TextBox x:Name="prioritet" Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" Width="95" Height="20"></TextBox>
+        <ComboBox x:Name="typeAgent" Grid.Column="2" Grid.Row="13" HorizontalAlignment="Center" Width="95" Height="20"></ComboBox>
+    </Grid>
+</Window>
